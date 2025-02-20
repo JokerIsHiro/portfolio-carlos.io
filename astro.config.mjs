@@ -6,7 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
   site: "https://portfoliocarlosastro.netlify.app",
-  base: "portfolio/index",
+  base: "portfolio",
     integrations: [mdx()],
     vite: {
         plugins: [tailwindcss()],
