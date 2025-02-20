@@ -1,0 +1,54 @@
+---
+interface Project {
+  title: string;
+  image: string;
+  description: string;
+  languages: string[];
+}
+
+// Importa y procesa los archivos Markdown
+const projects = await Promise.all(
+  Object.entries(
+    import.meta.glob<{ frontmatter: Project }>("../projects/*.md")
+  ).map(async ([, resolver]) => {
+    const { frontmatter } = await resolver();
+    return frontmatter;
+  })
+);
+---
+
+<div class="grid grid-cols-3 gap-4 p-4 text-black dark:text-white">
+  {
+    projects.map((project, index) => (
+      <div
+        class="bg-[#FFD19A] dark:bg-[#0B1A2B] p-4 rounded-lg shadow-md cursor-pointer"
+        data-index={index}
+      >
+        <img
+          src={project.image}
+          alt={project.title}
+          class="w-full h-auto rounded"
+        />
+        <h3 class="text-lg font-semibold mt-2">{project.title}</h3>
+      </div>
+    ))
+  }
+</div>
+<div id="project-details" class="p-6 mt-6 rounded-lg shadow-[4px_4px_25px_10px_rgba(0,_0,_0,_0.1)] dark:shadow-[4px_4px_25px_10px_rgba(255,255,255,0.1)] text-black dark:text-white">
+  <div class="flex space-x-4">
+    <div class="flex items-center justify-center shadow-md">
+      <img src="" alt="Foto de perfil" class="p-4 rounded-lg flex items-center justify-center shadow-md bg-[#FFD19A] dark:bg-[#0B1A2B]" />
+    </div>
+    <div
+      class="bg-[#FFD19A] dark:bg-[#0B1A2B] rounded-lg p-4 flex items-center justify-center w-full md:w-full"
+    >
+      <h1 class="text-2xl font-bold text-center">Proyecto Clickado</h1>
+    </div>
+  </div>
+  <div class="flex-1">
+    <textarea id="project-description" class="rounded-lg mt-4 mb-4 bg-[#FFD19A] dark:bg-[#0B1A2B] text-black dark:text-white w-full" readonly style="resize: none;" rows="5" disabled></textarea>
+    <h4 class="font-semibold mb-2 rounded-lg bg-[#FFD19A] dark:bg-[#0B1A2B]">Languages:</h4>
+    <ul id="project-languages" class="list-disc list-inside text-gray-600">
+    </ul>
+  </div>
+</div

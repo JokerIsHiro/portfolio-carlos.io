@@ -1,16 +1,25 @@
 ---
+import ProfileCard from "../components/ProfileCard.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import ContactCard from "../components/ContactCard.astro";
+import BaseLayout from "../layout/BaseLayout.astro";
 
+import "../styles/global.css";
+import LanguajesCard from "../components/LanguajesCard.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+  <div slot="perfil">
+    <ProfileCard />
+  </div>
+  <div slot="proyectos">
+    <ProjectCard />
+  </div>
+  <div slot="formulario">
+    <ContactCard />
+  </div>
+  <div slot="lenguajes">
+    <LanguajesCard />
+  </div>
+  <div slot="carrusel"></div>
+</BaseLayout>

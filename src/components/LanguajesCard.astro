@@ -1,0 +1,31 @@
+---
+interface Frontmatter {
+  title: string;
+  image: string;
+}
+
+// Importa y procesa los archivos Markdown
+const projects = await Promise.all(
+  Object.entries(
+    import.meta.glob<{ frontmatter: Frontmatter }>("../projects/*.md")
+  ).map(async ([, resolver]) => {
+    const { frontmatter } = await resolver();
+    return frontmatter;
+  })
+);
+---
+
+<div class="grid grid-cols-3 gap-6 text-black dark:text-white">
+    {
+        projects.map((project) => (
+          <div class="bg-[#FFD19A] dark:bg-[#0B1A2B] p-4 rounded-lg shadow-md">
+            <img
+              src={project.image}
+              alt={project.title}
+              class="w-full h-auto rounded"
+            />
+            <h3 class="text-lg font-semibold mt-2">{project.title}</h3>
+          </div>
+        ))
+      }
+</div>
