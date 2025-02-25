@@ -2,24 +2,12 @@
 import ProfileCard from "../components/ProfileCard.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import ContactCard from "../components/ContactCard.astro";
+import LanguajesCard from "../components/LanguajesCard.astro";
 import BaseLayout from "../layout/BaseLayout.astro";
 
 import "../styles/global.css";
-import LanguajesCard from "../components/LanguajesCard.astro";
 ---
 
 <BaseLayout>
-  <div slot="perfil">
-    <ProfileCard />
-  </div>
-  <div slot="proyectos">
-    <ProjectCard />
-  </div>
-  <div slot="formulario">
-    <ContactCard />
-  </div>
-  <div slot="lenguajes">
-    <LanguajesCard />
-  </div>
   <div slot="carrusel"></div>
 </BaseLayout>

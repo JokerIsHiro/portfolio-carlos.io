@@ -1,4 +1,7 @@
 ---
-title: "Angular"
-image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/120px-Angular_full_color_logo.svg.png"
+title: "COMMUNITE SOCIAL"
+description: "Clon de Instagram que trabaja con Firebase y Flutter"
+image: https://github.com/JokerIsHiro/CommuniteSocial/blob/master/assets/images/logo.png?raw=true
+languagesIcons: 
+    - https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg
 ---

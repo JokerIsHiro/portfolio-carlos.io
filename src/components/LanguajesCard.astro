@@ -1,31 +1,33 @@
 ---
-interface Frontmatter {
-  title: string;
-  image: string;
-}
 
-// Importa y procesa los archivos Markdown
-const projects = await Promise.all(
-  Object.entries(
-    import.meta.glob<{ frontmatter: Frontmatter }>("../projects/*.md")
-  ).map(async ([, resolver]) => {
-    const { frontmatter } = await resolver();
-    return frontmatter;
-  })
-);
 ---
 
-<div class="grid grid-cols-3 gap-6 text-black dark:text-white">
-    {
-        projects.map((project) => (
-          <div class="bg-[#FFD19A] dark:bg-[#0B1A2B] p-4 rounded-lg shadow-md">
-            <img
-              src={project.image}
-              alt={project.title}
-              class="w-full h-auto rounded"
-            />
-            <h3 class="text-lg font-semibold mt-2">{project.title}</h3>
-          </div>
-        ))
-      }
+<h3 class="text-black dark:text-white items-center text-center font-bold text-2xl">LENGUAJES MAS USADOS</h3>
+<div
+  class="grid grid-cols-4 gap-4 p-4 text-black dark:text-white items-center text-center"
+>
+  <div class="bg-[#FFD19A] dark:bg-[#0B1A2B] p-4 rounded-lg shadow-md">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" alt="Angular" class="w-full h-auto rounded" />
+  </div>
+  <div class="bg-[#FFD19A] dark:bg-[#0B1A2B] p-4 rounded-lg shadow-md">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript" class="w-full h-auto rounded" />
+  </div>
+  <div class="bg-[#FFD19A] dark:bg-[#0B1A2B] p-4 rounded-lg shadow-md">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-full h-auto rounded" />
+  </div>
+  <div class="bg-[#FFD19A] dark:bg-[#0B1A2B] p-4 rounded-lg shadow-md">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/astro/astro-original.svg" alt="Astro" class="w-full h-auto rounded" />
+  </div>
+  <div class="bg-[#FFD19A] dark:bg-[#0B1A2B] p-4 rounded-lg shadow-md">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" alt="Laravel" class="w-full h-auto rounded" />
+  </div>
+  <div class="bg-[#FFD19A] dark:bg-[#0B1A2B] p-4 rounded-lg shadow-md">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP" class="w-full h-auto rounded" />
+  </div>
+  <div class="bg-[#FFD19A] dark:bg-[#0B1A2B] p-4 rounded-lg shadow-md">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML" class="w-full h-auto rounded" />
+  </div>
+  <div class="bg-[#FFD19A] dark:bg-[#0B1A2B] p-4 rounded-lg shadow-md">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" class="w-full h-auto rounded" />
+  </div>
 </div>
