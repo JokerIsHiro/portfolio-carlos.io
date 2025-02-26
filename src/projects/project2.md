@@ -1,5 +1,5 @@
 ---
-title: "TOUR OF HEROES, DASHBOARD & DETAILS"
+title: "TOUR OF HEROES"
 description: "Aplicacion creada en Angular que consume de una API REST para obtener un listado de heroes con Observables"
 image: https://i.imgur.com/da1gKxy.png
 languagesIcons: 

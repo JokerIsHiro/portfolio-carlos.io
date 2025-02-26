@@ -22,7 +22,7 @@ const projects = await Promise.all(
   {
     projects.map((project, index) => (
       <div id="project-card"
-        class="bg-[#FFD19A] dark:bg-[#0B1A2B] p-4 rounded-lg shadow-md h-[210px] cursor-pointer text-black dark:text-white items-center text-center md:text-center lg:text-center"
+        class="bg-[#FFD19A] dark:bg-[#0B1A2B] grid grid-cols-1 p-4 rounded-lg shadow-md h-[210px] cursor-pointer text-black dark:text-white items-center text-center justify-center"
         data-index={index}
         data-project={JSON.stringify(project)}
       >
@@ -31,13 +31,13 @@ const projects = await Promise.all(
           alt={project.title}
           class="w-full max-h-[128px] rounded justify-center"
         />
-        <h3 class="text-black dark:text-white items-center text-center font-semibold">{project.title}</h3>
+        <h3 class="text-black dark:text-white font-semibold text-xs md:text-sm break-words">{project.title}</h3>
       </div>
     ))
     }
 </div>
 
-<p id="project-hint" class="p-4 text-black dark:text-white text-center">Selecciona un Proyecto para ver los detalles</p>
+<p id="project-hint" class="p-4 text-black dark:text-white text-center text-2xl">Selecciona un Proyecto para ver los detalles</p>
 
 <div id="project-details" class="hidden p-4 rounded-lg text-black dark:text-white">
   <div class="project-info flex space-x-4">
